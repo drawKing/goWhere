@@ -8,14 +8,17 @@
 			输入城市景点
 		</div>
 		<div class= "header-right">
-			城市
+			{{this.city}}
 			<span class="iconfont arrow-icon">&#xe64a;</span>
 		</div>
 	</div>
 </template>
 <script>
 export default{
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+	  city : String
+  }
 }
 </script>
 <!-- scoped指当前样式表只会对当前组件有效-->
