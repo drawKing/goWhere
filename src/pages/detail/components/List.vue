@@ -2,12 +2,12 @@
 <template>
     <div>
         <div class="item" v-for="(item,index) of list" :key="index">
-            <div class="item-title border-bottom">
+            <div class="item-title border-bottom" @click="toggleChildren">
                 <span class="item-title-icon"></span>
                 {{item.title}}
             </div>
-            <div v-if="item.children" class="item-children">
-                <detail-list :list="item.children"></detail-list>
+            <div v-if="showChildren" class="item-children" >
+                <detail-list :list="item.children" ></detail-list>
             </div>
         </div>
     </div>
@@ -18,7 +18,18 @@ export default {
     name: "DetailList",
     props: {
         list: Array
+    },
+    data () {
+        return {
+            showChildren: false,
+        }
+    },
+    methods: {
+        toggleChildren() {
+            this.showChildren = !this.showChildren;
+        }
     }
+   
 }
 </script>
 

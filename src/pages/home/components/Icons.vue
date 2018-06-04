@@ -46,37 +46,29 @@ export default{
 @import '~styles/varibles.styl';
 @import '~styles/mixins.styl';
 .icons >>> .swiper-container
-    height 0
-    padding-bottom 50%
-.icons
-    margin-top .1rem
+    height 180px
+    background white
     .icon
-        position relative
         overflow hidden
         float left
         width 25%
-        height 0
-        padding-bottom 25%
+        height 90px
         .icon-desc
-            position absolute
-            left 0
-            right 0
-            bottom 0
-            line-height .44rem
-            height .44rem
+            width 100%
+            height 45px
+            line-height 40px 
             text-align center
             color $darkTextColor
             ellipsis()
         .icon-img
-            position absolute
-            left 0
-            top 0
-            right 0
-            bottom .44rem
+            margin 0 auto
             box-sizing border-box
-            padding .1rem
+            padding .1rem 0
+            width 55px
+            height 55px
             .icon-img-content
                 display block
-                height 100%
-                margin 0 auto
+                width 55px
+                height 55px
+                
 </style>

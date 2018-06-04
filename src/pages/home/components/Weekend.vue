@@ -1,6 +1,10 @@
 <template>
-    <div>
-        <div class="title">周末去哪</div>
+    <div class="weekWrap">
+        <div class="title">
+            <span class="iconfont like">&#xe605;</span>
+            <b>周末去哪儿</b>
+            <span class="moreAdv">猜你喜欢 ></span>
+        </div>
         <ul>
             <li class="item border-bottom"  v-for="item of list" :key="item.id">
                 <div class="item-img-wrapper">
@@ -26,24 +30,54 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
-.title
-    line-height .8rem
-    background #eeeeee
-    text-indent .2rem
-.item-img-wrapper
-    height 0
-    padding-bottom 37.09%
-    overflow hidden 
-    .item-img
-        width 100%
-.item-info
-    padding .1rem
-    .item-title
-        line-height .54rem
-        font-size .32rem
-        ellipsis()
-    .item-desc
-        line-height .4rem
-        color #cccccc
-        ellipsis()
+@media screen and (max-width: 1024px) 
+    .weekWrap
+        min-height 0
+        padding-bottom 80%
+@media screen and (max-width: 768px) 
+    .weekWrap
+        min-height 0
+        padding-bottom 60%
+@media screen and (max-width: 414px) 
+    .weekWrap
+        min-height 0
+        padding-bottom 40%
+@media screen and (max-width: 375px) 
+    .weekWrap
+        min-height 0
+        padding-bottom 20%
+.weekWrap
+    background white
+    .title
+        text-indent .2rem
+        margin-top .2rem
+        padding-top .3rem
+        line-height .5rem
+        font-size .3rem
+        color #212121
+        .like
+            color red
+            font-size .37rem
+        .moreAdv
+            float right 
+            font-size .1rem
+            padding-right .5rem
+    .item
+        margin-top .1rem
+        .item-img-wrapper
+            height 0
+            padding-bottom 37.09%
+            overflow hidden 
+            .item-img
+                width 100%
+        .item-info
+            padding .1rem 0 .1rem .2rem
+            .item-title
+                line-height .54rem
+                font-size .3rem
+                ellipsis()
+            .item-desc
+                line-height .4rem
+                color #cccccc
+                ellipsis()
 </style>
