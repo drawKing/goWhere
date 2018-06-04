@@ -124,7 +124,6 @@
     .title
         padding-top .2rem
         line-height .5rem
-        text-indent .2rem
         font-size .3rem
         .topHuo
             color red
@@ -141,7 +140,7 @@
                 text-align center
                 flex: 0 0 95px;
                 overflow hidden
-                margin-right .1rem
+                border 2px solid white
                 .item-title
                     width 100%  
                     ellipsis()
@@ -153,9 +152,4 @@
                     line-height .5rem
                 .item-img
                     width 100%
-                
-                
- 
-  
-  
  </style>
