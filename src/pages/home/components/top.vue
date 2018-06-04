@@ -1,29 +1,27 @@
 <template>
-    <div class="TopView">
-        <div class="title">
+<div class="topView">
+    <div class="title">
             <span class="iconfont topHuo">&#xe6e7;</span>
             <b>本周热门榜单</b>
             <span class="moreTop">全部榜单 ></span>
-        </div>
-        <div class="tab" ref="tab">
-            <ul class="tab_content" ref="tabWrapper">
-                <li class="tab_item" v-for="item in topList" ref="tabitem" :key="item.id">
-                    <img class="tab_img" :src="item.imgUrl">
-                    <div class="item_title">{{item.title}}</div>
-                    <p class="item_price">{{item.price}}</p>
-                </li>
-            </ul>
-        </div>
     </div>
-</template>
-
-<script>
-import BScroll from 'better-scroll';
-export default {
-    name:"HomeTop",
-    data () {
-        return {
-            topList:[
+    <div class="tab" ref="tab">
+        <ul class="tab_content" ref="tabWrapper">
+            <li class="tab_item" v-for="item in itemList" ref="tabitem" :key="item.id">
+                <img class="item-img" :src="item.imgUrl">
+                <p class="item-title">{{item.title}}</p>
+                <p class="item-price">{{item.price}}</p>
+            </li>
+        </ul>
+    </div>
+ </div>
+ </template>
+ <script>
+ import BScroll from 'better-scroll';
+  export default {
+   data() {
+    return{
+     itemList:[
             {
             "id":"1",
             "title":"故宫",
@@ -85,46 +83,44 @@ export default {
             "imgUrl": "http://img1.qunarzz.com/sight/p0/1803/7b/7b023b9728f0834fa3.img.jpg_150x150_821b641d.jpg"
             }
         ]
-        }
-    },
-    created() {
-        this.$nextTick(() => {
-            this.InitTabScroll();
-        }); 
-     },
-     
-     
-    methods:{
-        InitTabScroll(){
-            let width=0
-            for (let i = 0; i < this.topList.length; i++) {
-                width+=this.$refs.tabitem[0].getBoundingClientRect().width; //getBoundingClientRect() 返回元素的大小及其相对于视口的位置
-            }
-            this.$refs.tabWrapper.style.width=width+'px'
-            this.$nextTick(()=>{
-                if (!this.scroll) {
-                    this.scroll=new BScroll(this.$refs.tab, {
-                        startX:0,
-                        click:true,
-                        scrollX:true,
-                        scrollY:false,
-                        eventPassthrough:'vertical'
-                    });
-                }else{
-                    this.scroll.refresh()
-                }
-            });
-        }
+    }
+   },
+   created() {
+    this.$nextTick(() => {
+     this.InitTabScroll();
+    });
+   },
+   methods:{
+    InitTabScroll(){
+     let width=0
+     for (let i = 0; i <this.itemList.length; i++) {
+       width+=this.$refs.tabitem[0].getBoundingClientRect().width; //getBoundingClientRect() 返回元素的大小及其相对于视口的位置
+     }
+     this.$refs.tabWrapper.style.width=width+'px'
+     this.$nextTick(()=>{
+       if (!this.scroll) {
+        this.scroll=new BScroll(this.$refs.tab, {
+         startX:0,
+         click:true,
+         scrollX:true,
+         scrollY:false,
+         eventPassthrough:'vertical'
+        });
+       }else{
+        this.scroll.refresh()
+       }
+     });
+    }
    }
-}
-</script>
-
-<style lang="stylus" scoped>
-@import '~styles/mixins.styl'
-.TopView
+  };
+ </script>
+ <style lang="stylus" scoped>
+ @import '~styles/mixins.styl'
+ .topView
+    width: 100vw;
+    padding-left .2rem
+    background white
     margin-top .2rem
-    height 207px
-    background white 
     .title
         padding-top .2rem
         line-height .5rem
@@ -137,29 +133,29 @@ export default {
             font-size .1rem
             padding-right .5rem
     .tab
-        width: 100vw;
         overflow: hidden;
         .tab_content
-            margin-top .2rem
-            padding-left .2rem
-            height 3rem
-            line-height 0.4rem
             display: flex;
+            box-sizing border-box 
             .tab_item
-                flex: 0 0 100px;
-                margin-right .15rem
                 text-align center
-                width 100px
-                .tab_img
-                    width 100%
-                .item_price
-                    color red
-                .item_title
-                    width 100px
+                flex: 0 0 95px;
+                overflow hidden
+                margin-right .1rem
+                .item-title
+                    width 100%  
                     ellipsis()
+                    height .5rem
+                    line-height .5rem
+                .item-price
+                    color red
+                    height .5rem
+                    line-height .5rem
+                .item-img
+                    width 100%
                 
                 
-                    
-   
-            
-</style>
+ 
+  
+  
+ </style>
