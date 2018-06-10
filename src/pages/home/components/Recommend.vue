@@ -21,8 +21,7 @@
                         {{item.price}}
                         <span>起</span>
                         <p class="item-local">{{item.local}}</p>
-                    </div>
-                    
+                    </div> 
                 </div>
             </router-link>
         </ul>
