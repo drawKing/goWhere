@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>swiper</div>
 </template>
 
 <script>

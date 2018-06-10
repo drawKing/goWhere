@@ -1,6 +1,6 @@
 // 递归组件，组件自身调用组件自身
 <template>
-    <div class="wrapper">
+    <div class="listWrapper">
         <!-- <div class="item" v-for="(item,index) of list" :key="index">
             <div class="item-title border-bottom" @click="toggleChildren">
                 <span class="item-title-icon"></span>
@@ -45,8 +45,7 @@ export default {
 
 <style lang="stylus">
 @import '~styles/varibles.styl';
-.wrapper
-    height 500px
+.listWrapper
     width 100%
     margin-top .2rem
     .ivu-tabs-bar
@@ -62,33 +61,30 @@ export default {
         text-align center
     .ivu-tabs-ink-bar .ivu-tabs-ink-bar-animated
         width 100%
-    .ivu-tree-title
-        
     span .ivu-tree-children
         padding 0
     ul .ivu-tree-children
         background white
         height 35px
         line-height 35px
-
         li
             margin 0   
-.ivu-tree ul
-    font-size .28rem
-.item-title-icon
-    position relative
-    left .06rem
-    top .06rem
-    display: inline-block;
-    width: .36rem;
-    height: .36rem;
-    background: url(http://s.qunarzz.com/piao/image/touch/sight/detail.png) 0 -.45rem no-repeat;
-    margin-right: .1rem;
-    background-size: .4rem 3rem;
-.item-title
-    line-height .8rem
-    font-size .32rem
-    padding 0 .2rem
-.item-children
-    padding 0 .2rem
+    .ivu-tree ul
+        font-size .28rem
+    .item-title-icon
+        position relative
+        left .06rem
+        top .06rem
+        display: inline-block;
+        width: .36rem;
+        height: .36rem;
+        background: url(http://s.qunarzz.com/piao/image/touch/sight/detail.png) 0 -.45rem no-repeat;
+        margin-right: .1rem;
+        background-size: .4rem 3rem;
+    .item-title
+        line-height .8rem
+        font-size .32rem
+        padding 0 .2rem
+    .item-children
+        padding 0 .2rem
 </style>
