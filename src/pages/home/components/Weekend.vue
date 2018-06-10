@@ -30,24 +30,9 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
-@media screen and (max-width: 1024px) 
-    .weekWrap
-        min-height 0
-        padding-bottom 80%
-@media screen and (max-width: 768px) 
-    .weekWrap
-        min-height 0
-        padding-bottom 60%
-@media screen and (max-width: 414px) 
-    .weekWrap
-        min-height 0
-        padding-bottom 40%
-@media screen and (max-width: 375px) 
-    .weekWrap
-        min-height 0
-        padding-bottom 20%
 .weekWrap
     background white
+    padding-bottom 50%
     .title
         text-indent .2rem
         margin-top .2rem
