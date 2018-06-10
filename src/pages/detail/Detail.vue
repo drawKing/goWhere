@@ -3,7 +3,7 @@
         <detail-banner :sightName="sightName" :bannerImg="bannerImg" :bannerImgs="gallaryImgs"></detail-banner>
         <detail-header></detail-header>
         <div class="content">
-            <detail-list :list="list"></detail-list>
+            <detail-list :list="list" :onedayList="onedayList"></detail-list>
         </div>
     </div>
 </template>
@@ -27,6 +27,7 @@ export default {
             bannerImg: "",
             gallaryImgs: [],
             list: [],
+            onedayList:[]
         }
     },
     methods: {
@@ -44,7 +45,8 @@ export default {
                 this.sightName = data.sightName,
                 this.bannerImg = data.bannerImg,
                 this.gallaryImgs = data.gallaryImgs,
-                this.list = data.categoryList
+                this.list = data.categoryList,
+                this.onedayList = data.onedayList
             }
         }
     },

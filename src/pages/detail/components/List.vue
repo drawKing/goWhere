@@ -1,7 +1,7 @@
 // 递归组件，组件自身调用组件自身
 <template>
-    <div>
-        <div class="item" v-for="(item,index) of list" :key="index">
+    <div class="wrapper">
+        <!-- <div class="item" v-for="(item,index) of list" :key="index">
             <div class="item-title border-bottom" @click="toggleChildren">
                 <span class="item-title-icon"></span>
                 {{item.title}}
@@ -9,7 +9,16 @@
             <div v-if="showChildren" class="item-children" >
                 <detail-list :list="item.children" ></detail-list>
             </div>
-        </div>
+        </div> -->
+        <Tabs value="name1">
+            <TabPane label="优惠套餐" name="name1">
+                <Tree :data="list" class="treeList"></Tree>
+            </TabPane>
+            <TabPane label="一日游" name="name2">
+                <Tree :data="onedayList" class="treeList"></Tree>
+            </TabPane>
+        </Tabs>
+        
     </div>
 </template>
 
@@ -17,7 +26,8 @@
 export default {
     name: "DetailList",
     props: {
-        list: Array
+        list: Array,
+        onedayList: Array
     },
     data () {
         return {
@@ -33,8 +43,38 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import '~styles/varibles.styl';
+.wrapper
+    height 500px
+    width 100%
+    margin-top .2rem
+    .ivu-tabs-bar
+        margin 0
+        width 100%
+        line-height 40px
+        background white
+    .ivu-tabs-tab .ivu-tabs-tab-active .ivu-tabs-tab-focused
+        padding 8px 0
+    .ivu-tabs-tab
+        margin-right 0px
+        width 50vw
+        text-align center
+    .ivu-tabs-ink-bar .ivu-tabs-ink-bar-animated
+        width 100%
+    .ivu-tree-title
+        
+    span .ivu-tree-children
+        padding 0
+    ul .ivu-tree-children
+        background white
+        height 35px
+        line-height 35px
+
+        li
+            margin 0   
+.ivu-tree ul
+    font-size .28rem
 .item-title-icon
     position relative
     left .06rem
