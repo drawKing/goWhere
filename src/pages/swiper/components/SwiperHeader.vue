@@ -1,19 +1,19 @@
 <template>
     <div>
-        <div class="Bg"></div>
+        <div class="Bg" v-show="blackBg" @click="clearBg"></div>
         <ul class="header">
             <router-link to="/" tag="li" class="li1"><span class="iconfont back-icon">&#xe624;</span></router-link>
             <li class="li2"><input class="headerInput" type="text" placeholder="景点门票"></li>
             <li class="li3">搜索</li>
         </ul>
         <ul class="title">
-            <li  @click="displayBg">
-                <Cascader :data="menuList">
-                    <a href="javascript:void(0)">全部分类</a>
-                </Cascader>
+            <li @click="displayBg" >
+                    <Cascader :data="list" v-model="nowMenuValue" >
+                        <a href="javascript:void(0)">全部分类</a>
+                    </Cascader>
             </li>
             <li>
-                <Cascader :data="recommendList">
+                <Cascader :data="listTwo" v-model="nowRecommendValue">
                     <a href="javascript:void(0)">推荐排序</a>
                 </Cascader>
             </li>
@@ -25,107 +25,23 @@
 <script>
 export default {
     name: "swiperHeader",
-    // methods: {
-    //     displayBg () {
-    //         alert(1)
-    //     }
-    // },
+    props: {
+        list: Array,
+        listTwo: Array
+    },
+    methods: {
+        displayBg () {
+            this.blackBg = true
+        },
+        clearBg () {
+            this.blackBg = false
+        }
+    },
     data () {
         return {
-             menuList: [{
-                    value: 'quanbufenlei',
-                    label: '全部分类',
-                    children: [
-                        {
-                            value: 'quanbufenlei',
-                            label: '全部分类',
-                        },]
-                }, {
-                    value: 'wenhuaguji',
-                    label: '文化古迹',
-                    children: [
-                        {
-                            value: 'gujianzhu ',
-                            label: '古建筑',
-                        },
-                        {
-                            value: 'yizhi',
-                            label: '遗址',
-                        },{
-                            value: 'simiao',
-                            label: '寺庙',
-                        },{
-                            value: 'gujie',
-                            label: '古街',
-                        }
-                    ],
-                },{
-                    value: 'nongjiadujia',
-                    label: '农家度假',
-                    children: [
-                        {
-                            value: 'dujiacun ',
-                            label: '度假村',
-                        },
-                        {
-                            value: 'caizhai',
-                            label: '采摘',
-                        },{
-                            value: 'nongjiale',
-                            label: '农家乐',
-                        },{
-                            value: 'shengtaiyuan',
-                            label: '生态园',
-                        }
-                    ],
-                },{
-                    value: 'gongyuan',
-                    label: '公园',
-                    children: [
-                        {
-                            value: 'zhutigongyuan ',
-                            label: '主题公园',
-                        },
-                        {
-                            value: 'bolanyuan',
-                            label: '博览园',
-                        },{
-                            value: 'shengtaiyuan',
-                            label: '生态园',
-                        },{
-                            value: 'shidigongyuan',
-                            label: '湿地公园',
-                        },{
-                            value: 'dizhigongyuan',
-                            label: '地质公园',
-                        }
-                    ],
-                },{
-                    value: 'shineiyule',
-                    label: '室内娱乐',
-                    children: [
-                        {
-                            value: 'quanbuyule ',
-                            label: '全部娱乐',
-                        },
-                        {
-                            value: 'mishitaotuo',
-                            label: '密室逃脱',
-                        }
-                    ],
-                }],
-            recommendList: [
-                {
-                    value: 'tuijianpaixu',
-                    label: '推荐排序',
-                },{
-                    value: 'liwozuijin',
-                    label: '离我最近',
-                },{
-                    value: 'renqizuigao',
-                    label: '人气最高',
-                }
-            ]
+             blackBg:false,
+             nowMenuValue: ['quanbufenlei','quanbufenlei'],
+             nowRecommendValue: ['tuijianpaixu'],
         }
     }
 }
@@ -134,7 +50,7 @@ export default {
 <style lang="stylus" scoped>
 .Bg
     width 100%
-    height 1000px;
+    height 100%;
     position fixed
     left 0
     top 0
@@ -207,11 +123,11 @@ export default {
     position relative
     z-index 2
     display flex
-    height 44px
-    line-height 44px
-    border-top 1px solid #f1f1f1
-    border-bottom 1px solid #f1f1f1
+    height 45px
+    line-height 45px
     background white
+    border-bottom 1px solid #f1f1f1
+    border-top 1px solid #f1f1f1
     li
         flex 1
         text-align center
@@ -220,10 +136,11 @@ export default {
         content ""
         width 1px
         position absolute
+        z-index 3
         left 50%
+        top 0
         margin-left -.5px
         margin-top 7px
-        
         height 30px
         background #f1f1f1
 </style>

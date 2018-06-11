@@ -60,7 +60,7 @@ export default {
         width 50vw
         text-align center
     .ivu-tabs-ink-bar .ivu-tabs-ink-bar-animated
-        width 100%
+        width 100vw
     span .ivu-tree-children
         padding 0
     ul .ivu-tree-children

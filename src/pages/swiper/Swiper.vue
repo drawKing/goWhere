@@ -1,7 +1,7 @@
 <template>
     <div>
-        <swiperHeader></swiperHeader>
-        <swiper-content></swiper-content>
+        <swiperHeader :list="menuList" :listTwo="recommendList"></swiperHeader>
+        <swiper-content :list="swiperContentList"></swiper-content>
     </div>
 </template>
 
@@ -14,7 +14,31 @@ export default {
     components: {
         swiperHeader,
         SwiperContent
+    },
+    data () {
+      return {
+          menuList: [],
+          swiperContentList: [],
+          recommendList: []
+      }
+    },
+    methods:{
+        getHomeInfo () {
+            axios.get('/api/swiper.json').then(this.getHomeInfoSucc)
+        },
+    getHomeInfoSucc (res) {
+      res = res.data
+      if(res.ret && res.data){
+        const data = res.data
+        this.menuList = data.menuList
+        this.swiperContentList = data.swiperContentList
+        this.recommendList = data.recommendList
+      }
     }
+  },
+  mounted () {
+    this.getHomeInfo()
+  },
 }
 </script>
 
