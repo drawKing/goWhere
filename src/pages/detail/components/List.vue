@@ -33,13 +33,7 @@ export default {
         return {
             showChildren: false,
         }
-    },
-    methods: {
-        toggleChildren() {
-            this.showChildren = !this.showChildren;
-        }
     }
-   
 }
 </script>
 
