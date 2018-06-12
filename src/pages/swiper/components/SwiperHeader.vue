@@ -8,7 +8,7 @@
         </ul>
         <ul class="title">
             <li @click="displayBg" >
-                    <Cascader :data="list" v-model="nowMenuValue" >
+                    <Cascader :data="list" v-model="nowMenuValue"  >
                         <a href="javascript:void(0)">全部分类</a>
                     </Cascader>
             </li>
