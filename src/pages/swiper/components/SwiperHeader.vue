@@ -6,19 +6,18 @@
             <li class="li2"><input class="headerInput" type="text" placeholder="景点门票"></li>
             <li class="li3">搜索</li>
         </ul>
-        <ul class="title">
+        <ul class="title" ref="goTop" :class="{fixtop:show}">
             <li @click="displayBg" >
                     <Cascader :data="list" v-model="nowMenuValue"  >
                         <a href="javascript:void(0)">全部分类</a>
                     </Cascader>
             </li>
-            <li>
+            <li @click="displayBg">
                 <Cascader :data="listTwo" v-model="nowRecommendValue">
                     <a href="javascript:void(0)">推荐排序</a>
                 </Cascader>
             </li>
         </ul>
-        
     </div>
 </template>
 
@@ -35,11 +34,26 @@ export default {
         },
         clearBg () {
             this.blackBg = false
+        },
+        handleScroll () {
+            const headerTop = document.documentElement.scrollTop
+            if(headerTop > 43){
+               this.show = true 
+            }else{
+                this.show = false
+            }
         }
+    },
+    mounted () {
+        window.addEventListener('scroll',this.handleScroll)
+    },
+    destroyed () {
+        window.removeEventListener('scroll',this.handleScroll)
     },
     data () {
         return {
              blackBg:false,
+             show:false,
              nowMenuValue: ['quanbufenlei','quanbufenlei'],
              nowRecommendValue: ['tuijianpaixu'],
         }
@@ -121,6 +135,32 @@ export default {
         font-size .28rem
 .title
     position relative
+    z-index 2
+    display flex
+    height 45px
+    line-height 45px
+    background white
+    border-bottom 1px solid #f1f1f1
+    border-top 1px solid #f1f1f1
+    li
+        flex 1
+        text-align center
+        font-size .28rem
+    >:first-child::after
+        content ""
+        width 1px
+        position absolute
+        z-index 3
+        left 50%
+        top 0
+        margin-left -.5px
+        margin-top 7px
+        height 30px
+        background #f1f1f1
+.fixtop
+    position fixed
+    width 100vw
+    top 0
     z-index 2
     display flex
     height 45px
