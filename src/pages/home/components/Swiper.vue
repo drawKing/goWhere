@@ -23,6 +23,7 @@ export default {
                 pagination: ".swiper-pagination",
                 loop:true,
                 autoplay: 2000,
+                autoplayDisableOnInteraction:false
             }
         }
     },

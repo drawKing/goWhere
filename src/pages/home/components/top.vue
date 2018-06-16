@@ -66,7 +66,7 @@
             color red
         .moreTop
             float right 
-            font-size .1rem
+            font-size 12px
             padding-right .5rem
     .tab
         overflow: hidden;

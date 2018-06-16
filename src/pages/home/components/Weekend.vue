@@ -45,7 +45,7 @@ export default {
             font-size .37rem
         .moreAdv
             float right 
-            font-size .1rem
+            font-size 12px
             padding-right .5rem
     .item
         margin-top .1rem

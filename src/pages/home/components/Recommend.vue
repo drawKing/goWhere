@@ -55,7 +55,7 @@ export default {
             font-size .35rem
         .moreAdv
             float right 
-            font-size .1rem
+            font-size 12px
             padding-right .5rem
     ul
         padding-left .1rem
@@ -93,7 +93,7 @@ export default {
                         float right 
                         padding-right .5rem
                         color black 
-                        font-size  .15rem
+                        font-size  10px
                         color #616161
                 
                     

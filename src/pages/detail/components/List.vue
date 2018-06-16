@@ -60,11 +60,14 @@ export default {
     ul .ivu-tree-children
         background white
         height 35px
+        padding-left 15px
         line-height 35px
         li
             margin 0   
     .ivu-tree ul
         font-size .28rem
+    .ivu-tree ul li
+        text-indent 5px
     .item-title-icon
         position relative
         left .06rem

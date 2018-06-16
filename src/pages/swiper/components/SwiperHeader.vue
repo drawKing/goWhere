@@ -6,7 +6,7 @@
             <li class="li2"><input class="headerInput" type="text" placeholder="景点门票"></li>
             <li class="li3">搜索</li>
         </ul>
-        <ul class="title" ref="goTop" :class="{fixtop:show}">
+        <ul class="title" ref="goTop" :class="{fixtop:show}" >
             <li @click="displayBg" >
                     <Cascader :data="list" v-model="nowMenuValue"  >
                         <a href="javascript:void(0)">全部分类</a>
@@ -127,6 +127,7 @@ export default {
             width 100%
             color black 
             height 30px
+            line-height 30px
             text-align center
             background #f1f1f1
             border-radius 15px
