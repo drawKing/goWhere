@@ -45,10 +45,12 @@ export default {
         }
     },
     mounted () {
-        window.addEventListener('scroll',this.handleScroll)
+        let _this = this
+        window.addEventListener('scroll',_this.handleScroll)
     },
     destroyed () {
-        window.removeEventListener('scroll',this.handleScroll)
+        let _this = this
+        window.addEventListener('scroll',_this.handleScroll)
     },
     data () {
         return {

@@ -5,15 +5,17 @@
             <b>本周热门榜单</b>
             <span class="moreTop">全部榜单 ></span>
     </div>
-    <div class="tab" ref="tab">
-        <ul class="tab_content" ref="tabWrapper">
-            <li class="tab_item" v-for="item in list" ref="tabitem" :key="item.id">
-                <img class="item-img" :src="item.imgUrl">
-                <p class="item-title">{{item.title}}</p>
-                <p class="item-price">{{item.price}}</p>
-            </li>
-        </ul>
-    </div>
+    <router-link to="/detail/ + item.id " tag="div">
+        <div class="tab" ref="tab">
+            <ul class="tab_content" ref="tabWrapper" >
+                <li class="tab_item" v-for="item in list" ref="tabitem" :key="item.id">
+                    <img class="item-img" :src="item.imgUrl">
+                    <p class="item-title">{{item.title}}</p>
+                    <p class="item-price">{{item.price}}</p>
+                </li>
+            </ul>
+        </div>
+    </router-link>
  </div>
  </template>
  <script>
