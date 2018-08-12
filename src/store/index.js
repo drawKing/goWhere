@@ -6,6 +6,8 @@ import mutations from './mutations';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  // 状态
   state,
+  // 用于引发状态改变的所有方法
   mutations
 });
