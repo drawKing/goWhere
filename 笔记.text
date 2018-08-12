@@ -1,0 +1,11 @@
+一。城市选择字母表滚动
+    使用betterscroll插件
+    import Bscroll = from 'better-scroll';
+    mounted(){
+        this.scroll = new Bscroll(this.$refs.wrapper)
+    }
+二。Vue.$nextTick用法
+    1.Vue实现响应式并不是数据发生变化之后DOM立即变化
+    2.用途：需要在视图更新之后，基于新的视图进行操作
+    3.Vue在修改数据之后，视图不会立即更新，而是等同一事件循环操作完成之后统一更新视图
+    4.nextTick()里面的代码会在DOM更新之后立即执行
