@@ -13,4 +13,13 @@
     1.定义touchstart touchmove touchend三个方法，在Alphabet中定义data的属性：touchstatus为false;start时改status为true,
       end时定义status为false
     2.实现原理：获得字母表最上面A距离顶部的高度，滑动时看当前手指的字母距离顶部的高度，做一个差值，就能算出当前字母与A字母
-      间的距离，在除以每个字母的高度，就可知道当前字母是谁
+      间的距离，在除以每个字母的高度，就可知道当前字母是谁。
+四。keep-alive
+    VUE内置组件，在组件切换过程中将状态保留在内存中，防止重复渲染DOM，包裹动态组件时，会缓存不活动的组件实例。
+    而不是销毁他们。
+五。VUEX：状态管理库
+    1.当多个公用组件数据传值很困难时，把公用数据放到store库，Store由三部分组成：state,mutations,actions
+    2.组件想修改数据，先调用Actions做一些批量处理，actions在调用mutations，进而mutations操作State.
+六。项目的联调与上线
+    1.config的index.js中修改配置项proxyTable
+    2.更改为本机的IP地址
