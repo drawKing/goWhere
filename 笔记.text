@@ -54,3 +54,9 @@
         在get中，向依赖收集器添加了监听
         在mount时，实例了一个Watcher，将收集器的目标指向了当前Watcher
         在data值发生变更时，触发set，触发了依赖收集器中的所有监听的更新，来触发Watcher.update
+
+十二。vue-router原理分析；常用于单页应用
+    核心是更新视图而不重新请求页面
+    1.Hash: 通过改变hash值
+    2.History: 利用history对象新特性
+    
