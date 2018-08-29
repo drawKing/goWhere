@@ -23,3 +23,34 @@
 六。项目的联调与上线
     1.config的index.js中修改配置项proxyTable
     2.更改为本机的IP地址
+
+七。嵌套路由
+        const routes = [
+             { path: '/', redirect: '/home' },
+            { 
+                path: '/home', 
+                component: Home, 
+                children:[
+                    { path: '/home/login', component: Login},
+                    { path: '/home/reg', component: Reg}
+                ]
+            },
+            { path: '/news', component: News}
+        ]
+八。MVVM
+    MVVM中的View 和 ViewModel可以互相通信。也就是可以互相调用。MVVM，数据驱动视图，核心是VM ，
+    可以把视图逻辑放在viewmodel中，让很多view重用这段视图逻辑。
+
+九。v-if v-show
+    v-if是动态的向DOM树内添加或者删除DOM元素；v-if适合运营条件不大可能改变；
+    v-show是通过设置DOM元素的display样式属性控制显隐； v-show适合频繁切换。
+
+十。router-View
+    主要是构建 SPA (单页应用) 时，方便渲染你指定路由对应的组件.
+    把router-view 当做是一个容器，它渲染的组件是你使用 vue-router 指定的。
+
+十一。vue响应式原理
+        vue将data初始化为一个Observer并对对象中的每个值，重写了其中的get、set，data中的每个key，都有一个独立的依赖收集器。
+        在get中，向依赖收集器添加了监听
+        在mount时，实例了一个Watcher，将收集器的目标指向了当前Watcher
+        在data值发生变更时，触发set，触发了依赖收集器中的所有监听的更新，来触发Watcher.update
