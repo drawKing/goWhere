@@ -53,6 +53,7 @@ export default {
                 if(this.timer){
                     clearTimeout(this.timer)
                 }
+                // 函数节流，减少handleTouchMove的触发频率
                 setTimeout(()=>{
                     const touchY = e.touches[0].clientY - 79
                     const index = Math.floor((touchY - this.startY) / 20) 

@@ -56,7 +56,9 @@ export default {
         ...mapMutations(['changeCity'])
     },
     watch : {
+        // 侦听器监听letter变化
         letter () {
+            // 如果letter不为空
             if(this.letter){
                 const element=this.$refs[this.letter][0]
                 this.scroll.scrollToElement(element)

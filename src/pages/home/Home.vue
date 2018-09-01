@@ -60,6 +60,7 @@ export default{
     this.lastCity = this.city
     this.getHomeInfo()
   },
+  // 当页面重新显示时 activated 执行
   activated () {
       if(this.lastCity !== this.city){
         this.lastCity = this.city
