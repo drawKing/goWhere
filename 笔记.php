@@ -1,3 +1,4 @@
+<?php
 一。城市选择字母表滚动
     使用betterscroll插件
     import Bscroll = from 'better-scroll';
@@ -61,4 +62,46 @@
     2.History: 利用history对象新特性
 
 十三。AJAX请求一般放在父组件上去调用，比如City.vue
-    
+
+十四。vue react 
+    Vue和React不同点：
+    1）Vue：1.模版和渲染函数的弹性选择
+            2.简单的语法及项目创建
+            3.更快的选软速度和更小的体积
+
+    2）React:1.更适用于大型应用和更好的可测试性
+            2.同时适用web端和原生App
+            3.更大的生态圈带来更多的支持和工具
+
+    Vue和React相同点：
+    1.利用虚拟DOM实现快速渲染
+    2.轻量级
+    3.响应式组件
+    4.服务器端渲染
+    5易于集成路由工具，打包工具以及状态管理工具
+    6.优秀的支持和社区
+
+
+十五。继承
+function A(){
+    this.abc=12;
+}
+A.prototype.show=function (){
+    alert(this.abc);
+};
+//继承A
+function B(){
+    //继承属性；this->new B()
+    A.call(this);   //有参数可以传参数A.call(this,name,age)
+}
+//继承方法；B.prototype=A.prototype;
+for(var i in A.prototype){
+    B.prototype[i]=A.prototype[i];
+}
+//添加自己的方法
+B.prototype.fn=function (){
+    alert('abc');
+};
+var objB=new B();
+var objA=new A();
+objB.show();
