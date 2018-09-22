@@ -38,6 +38,7 @@ export default{
     }
   },
   computed: {
+    // mapState通过扩展运算符将city映射到this.city
     ...mapState (['city'])
   },
   methods:{

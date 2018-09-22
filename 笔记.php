@@ -55,6 +55,11 @@
         在get中，向依赖收集器添加了监听
         在mount时，实例了一个Watcher，将收集器的目标指向了当前Watcher
         在data值发生变更时，触发set，触发了依赖收集器中的所有监听的更新，来触发Watcher.update
+        1.实现一个监听器Observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者。
+
+        2.实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。
+
+        3.实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。
 
 十二。vue-router原理分析；常用于单页应用
     核心是更新视图而不重新请求页面
@@ -81,27 +86,10 @@
     5易于集成路由工具，打包工具以及状态管理工具
     6.优秀的支持和社区
 
-
-十五。继承
-function A(){
-    this.abc=12;
-}
-A.prototype.show=function (){
-    alert(this.abc);
-};
-//继承A
-function B(){
-    //继承属性；this->new B()
-    A.call(this);   //有参数可以传参数A.call(this,name,age)
-}
-//继承方法；B.prototype=A.prototype;
-for(var i in A.prototype){
-    B.prototype[i]=A.prototype[i];
-}
-//添加自己的方法
-B.prototype.fn=function (){
-    alert('abc');
-};
-var objB=new B();
-var objA=new A();
-objB.show();
+十五。vuex:假如在页面中直接修改state,而不是通过mutation 的commit方式修改，会怎么样?
+1）共同点： 能够修改state里的变量，并且是响应式的（能触发视图更新）
+2）不同点：
+    若将vue创建 store 的时候传入 strict: true, 开启严格模式，那么任何修改state的操作，只要不经过
+    mutation的函数，vue就会  throw error 
+3)使用commit提交到mutation修改state的优点：
+    vuex能够记录每一次state的变化记录，保存状态快照，实现时间漫游／回滚之类的操作。
