@@ -5,17 +5,6 @@
             <b>周末去哪儿</b>
             <span class="moreAdv">猜你喜欢 ></span>
         </div>
-        <!--<ul>-->
-            <!--<li class="item border-bottom"  v-for="item of list" :key="item.id">-->
-                <!--<div class="item-img-wrapper">-->
-                    <!--<img class="item-img" :src="item.imgUrl">-->
-                <!--</div>-->
-                <!--<div class="item-info">-->
-                    <!--<p class="item-title">{{item.title}}</p>-->
-                    <!--<p class="item-desc">{{item.desc}}</p>-->
-                <!--</div>-->
-            <!--</li>-->
-        <!--</ul>-->
         <Scroll :on-reach-bottom="handleReachBottom">
           <ul>
             <li class="item border-bottom"  v-for="(item,index) of list1" :key="index">
@@ -112,7 +101,18 @@ export default {
           }, 2000);
         });
       }
-    }
+      // handleReachBottom () {
+      //   return new Promise(resolve => {
+      //     setTimeout(() => {
+      //       const last = this.list1[this.list1.length - 1];
+      //       for (let i = 1; i < 11; i++) {
+      //         this.list1.push(last + i);
+      //       }
+      //       resolve();
+      //     }, 2000);
+      //   });
+      // },
+    },
 }
 </script>
 
