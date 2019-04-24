@@ -10,15 +10,49 @@
                 <detail-list :list="item.children" ></detail-list>
             </div>
         </div> -->
-        <Tabs value="name1">
-            <TabPane label="优惠套餐" name="name1">
-                <Tree :data="list" class="treeList"></Tree>
-            </TabPane>
-            <TabPane label="一日游" name="name2">
-                <Tree :data="onedayList" class="treeList"></Tree>
-            </TabPane>
-        </Tabs>
-        
+        <!--<Tabs value="name1">-->
+            <!--<TabPane label="优惠套餐" name="name1">-->
+                <!--<Tree :data="list" class="treeList"></Tree>-->
+            <!--</TabPane>-->
+            <!--<TabPane label="一日游" name="name2">-->
+                <!--<Tree :data="onedayList" class="treeList"></Tree>-->
+            <!--</TabPane>-->
+        <!--</Tabs>-->
+      <Tabs value="name1">
+        <TabPane label="优惠套餐" name="name1">
+          <Collapse simple v-model="value1">
+            <Panel name="1">
+              基础套餐
+              <p slot="content" style="height: 25px;">【1晚】1晚马累</p>
+              <p slot="content">【4晚】4晚沙滩别墅STANDARD DELUXE</p>
+            </Panel>
+            <Panel name="2">
+              升级套餐
+              <p slot="content" style="height: 25px;">【沙滩别墅】1晚马累+2晚沙滩别墅</p>
+              <p slot="content">【水上别墅】2晚水上别墅WATER</p>
+            </Panel>
+            <Panel name="3">
+              VIP套餐
+              <p slot="content" style="height: 25px;">【大牌·网红圣地】阿雅娜酒店</p>
+              <p slot="content">【近购物中心】私人沙滩+热带花园</p>
+            </Panel>
+            <Panel name="4">
+              金牌套餐
+              <p slot="content" style="height: 25px;">【抖音同款】漂浮早餐+高空秋千</p>
+              <p slot="content">【印尼秘境】空中花园酒店</p>
+            </Panel>
+          </Collapse>
+        </TabPane>
+        <TabPane label="一日游" name="name2">
+          <Collapse simple v-model="value2">
+            <Panel name="1">
+              一日游
+              <p slot="content" style="height: 25px;">【蜜月浪漫推荐】2晚莎玛贝（漂浮早餐）</p>
+              <p slot="content">【浪漫推荐】全景阳台套房S</p>
+            </Panel>
+          </Collapse>
+        </TabPane>
+      </Tabs>
     </div>
 </template>
 
@@ -31,7 +65,9 @@ export default {
     },
     data () {
         return {
-            showChildren: false,
+          showChildren: false,
+          value1 : ['1','2','3','4'],
+          value2: '1'
         }
     }
 }

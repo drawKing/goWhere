@@ -15,7 +15,7 @@
     "babel-polyfill": "^6.26.0",
     "better-scroll": "^1.11.1",
     "fastclick": "^1.0.6",
-    "iview": "^2.14.1",
+    "iview": "^3.4.0",
     "json-loader": "^0.5.7",
     "mui": "0.0.1",
     "save": "^2.3.2",

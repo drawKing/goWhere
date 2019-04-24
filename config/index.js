@@ -11,14 +11,15 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target: "http://localhost:8081 ",
+        // target: "http://localhost:8081 ",
+        target: 'http://localhost:8081',
         pathRewrite:{
           '^/api':'/static/mock'
         }
       }
     },
 
-    // Various Dev Server settings
+    // Various Dev Server settings localhost
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
